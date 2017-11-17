@@ -12,6 +12,9 @@
 		EDE00F531FBADB330025BD27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE00F511FBADB330025BD27 /* Main.storyboard */; };
 		EDE00F551FBADB330025BD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE00F541FBADB330025BD27 /* Assets.xcassets */; };
 		EDE00F581FBADB330025BD27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE00F561FBADB330025BD27 /* LaunchScreen.storyboard */; };
+		EDE00F761FBF02330025BD27 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE00F751FBF02330025BD27 /* Card.swift */; };
+		EDF15C991FBF1C3D002A020D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF15C981FBF1C3D002A020D /* Presenter.swift */; };
+		EDF15C9B1FBF1F70002A020D /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF15C9A1FBF1F70002A020D /* Board.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		EDE00F541FBADB330025BD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDE00F571FBADB330025BD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDE00F591FBADB330025BD27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE00F751FBF02330025BD27 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		EDF15C981FBF1C3D002A020D /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		EDF15C9A1FBF1F70002A020D /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,41 @@
 		EDE00F4C1FBADB330025BD27 /* PokerGame */ = {
 			isa = PBXGroup;
 			children = (
+				EDE00F791FBF04870025BD27 /* presenter */,
+				EDE00F781FBF03F50025BD27 /* view */,
+				EDE00F771FBF03E30025BD27 /* model */,
 				EDE00F4D1FBADB330025BD27 /* AppDelegate.swift */,
-				EDE00F4F1FBADB330025BD27 /* ViewController.swift */,
-				EDE00F511FBADB330025BD27 /* Main.storyboard */,
 				EDE00F541FBADB330025BD27 /* Assets.xcassets */,
 				EDE00F561FBADB330025BD27 /* LaunchScreen.storyboard */,
 				EDE00F591FBADB330025BD27 /* Info.plist */,
 			);
 			path = PokerGame;
+			sourceTree = "<group>";
+		};
+		EDE00F771FBF03E30025BD27 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				EDE00F751FBF02330025BD27 /* Card.swift */,
+				EDF15C9A1FBF1F70002A020D /* Board.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		EDE00F781FBF03F50025BD27 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				EDE00F4F1FBADB330025BD27 /* ViewController.swift */,
+				EDE00F511FBADB330025BD27 /* Main.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		EDE00F791FBF04870025BD27 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EDF15C981FBF1C3D002A020D /* Presenter.swift */,
+			);
+			path = presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +170,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDE00F501FBADB330025BD27 /* ViewController.swift in Sources */,
+				EDE00F761FBF02330025BD27 /* Card.swift in Sources */,
+				EDF15C9B1FBF1F70002A020D /* Board.swift in Sources */,
+				EDF15C991FBF1C3D002A020D /* Presenter.swift in Sources */,
 				EDE00F4E1FBADB330025BD27 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
