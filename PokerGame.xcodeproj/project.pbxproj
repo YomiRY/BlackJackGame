@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED2521A01FC080DF00282CEE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED25219F1FC080DF00282CEE /* Images.xcassets */; };
 		EDD0E4911FBF64E70054FC5B /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4901FBF64E70054FC5B /* GameStatus.swift */; };
 		EDD0E4931FBF64F20054FC5B /* BlackJackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4921FBF64F20054FC5B /* BlackJackPresenter.swift */; };
 		EDD0E4951FBF650B0054FC5B /* BlackJackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4941FBF650B0054FC5B /* BlackJackViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED25219F1FC080DF00282CEE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EDD0E4901FBF64E70054FC5B /* GameStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 		EDD0E4921FBF64F20054FC5B /* BlackJackPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackJackPresenter.swift; sourceTree = "<group>"; };
 		EDD0E4941FBF650B0054FC5B /* BlackJackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackJackViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				EDE00F541FBADB330025BD27 /* Assets.xcassets */,
 				EDE00F561FBADB330025BD27 /* LaunchScreen.storyboard */,
 				EDE00F591FBADB330025BD27 /* Info.plist */,
+				ED25219F1FC080DF00282CEE /* Images.xcassets */,
 			);
 			path = PokerGame;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDE00F581FBADB330025BD27 /* LaunchScreen.storyboard in Resources */,
+				ED2521A01FC080DF00282CEE /* Images.xcassets in Resources */,
 				EDE00F551FBADB330025BD27 /* Assets.xcassets in Resources */,
 				EDE00F531FBADB330025BD27 /* Main.storyboard in Resources */,
 			);
