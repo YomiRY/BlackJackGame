@@ -11,7 +11,7 @@ import UIKit
 class BlackJackViewController: UIViewController, ViewControllerProtocol{
     
     @IBOutlet var mMyCardArray: [UIImageView]!
-    @IBOutlet var mAnotherCardArray: [UIImageView]!
+    @IBOutlet var mBankerCardArray: [UIImageView]!
     
     var mPokerBackImage:UIImage?
     var mPresenter:BlackJackPresenter?
@@ -59,27 +59,27 @@ class BlackJackViewController: UIViewController, ViewControllerProtocol{
         currentCard.image = UIImage(named: myCard.mImgName)
     }
     
-    // MARK: - showAnotherCardFront:ViewControllerProtocol
-    func showAnotherCardFront(anotherCardIndex: Int, anotherCard: Card) {
-        self.mAnotherCardArray[anotherCardIndex].image = UIImage(named: anotherCard.mImgName)
-        let currentCard = self.mAnotherCardArray[anotherCardIndex]
-        let nextCardIndex = anotherCardIndex + 1
+    // MARK: - showBankerCardFront:ViewControllerProtocol
+    func showBankerCardFront(bankerCardIndex: Int, bankerCard: Card) {
+        self.mBankerCardArray[bankerCardIndex].image = UIImage(named: bankerCard.mImgName)
+        let currentCard = self.mBankerCardArray[bankerCardIndex]
+        let nextCardIndex = bankerCardIndex + 1
         
-        if nextCardIndex < self.mAnotherCardArray.count {
-            let nextCard = self.mAnotherCardArray[nextCardIndex]
+        if nextCardIndex < self.mBankerCardArray.count {
+            let nextCard = self.mBankerCardArray[nextCardIndex]
             nextCard.isHidden = false
         }
         currentCard.isHidden = false
-        currentCard.image = UIImage(named: anotherCard.mImgName)
+        currentCard.image = UIImage(named: bankerCard.mImgName)
     }
     
     // MARK: - resetUI:ViewControllerProtocol
     func resetUI() {
         for i in stride(from: 0, to: mMyCardArray.count, by: 1) {
             self.mMyCardArray[i].isHidden = (i != 0)
-            self.mAnotherCardArray[i].isHidden = (i != 0)
+            self.mBankerCardArray[i].isHidden = (i != 0)
             self.mMyCardArray[i].image = mPokerBackImage
-            self.mAnotherCardArray[i].image = mPokerBackImage
+            self.mBankerCardArray[i].image = mPokerBackImage
         }
     }
 }

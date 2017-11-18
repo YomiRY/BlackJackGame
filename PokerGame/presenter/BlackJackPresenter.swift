@@ -33,13 +33,13 @@ class BlackJackPresenter: NSObject {
     
     func onBtnFinishGetClick() -> Void {
         repeat {
-            let anotherNextCardIndex = self.mBoard?.getNextAnotherCardIndex()
-            let anotherNextCard = self.mBoard?.getNextAnotherCard()
+            let bankerNextCardIndex = self.mBoard?.getBankerNextCardIndex()
+            let bankerNextCard = self.mBoard?.getBankerNextCard()
             
-            if let card = anotherNextCard {
-                self.mViewController?.showAnotherCardFront(anotherCardIndex: anotherNextCardIndex!, anotherCard: card)
+            if let card = bankerNextCard {
+                self.mViewController?.showBankerCardFront(bankerCardIndex: bankerNextCardIndex!, bankerCard: card)
             }
-        } while ((self.mBoard?.isNextAnotherCardAvailable())!)
+        } while ((self.mBoard?.isBankerNextCardAvailable())!)
     }
     
     func onBtnRetryClick() -> Void {

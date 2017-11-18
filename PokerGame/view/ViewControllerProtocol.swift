@@ -12,6 +12,6 @@ protocol ViewControllerProtocol {
     func showWinner(gameStatus:GameStatus) -> Void
     func resetUI() -> Void
     func showMyCardFront(myCardIndex:Int, myCard:Card) -> Void
-    func showAnotherCardFront(anotherCardIndex:Int, anotherCard:Card) -> Void
+    func showBankerCardFront(bankerCardIndex:Int, bankerCard:Card) -> Void
     
 }

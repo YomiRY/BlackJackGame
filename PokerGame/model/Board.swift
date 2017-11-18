@@ -16,11 +16,11 @@ class Board: NSObject {
     private let mAllCardArray:[Card]
     private let mRandomNumber : GKShuffledDistribution?
     private var mSelectedMyCardIndexArray:[Int]
-    private var mSelectedAnotherCardIndexArray:[Int]
+    private var mSelectedBankerCardIndexArray:[Int]
     
     override init() {
         mSelectedMyCardIndexArray = [Int]()
-        mSelectedAnotherCardIndexArray = [Int]()
+        mSelectedBankerCardIndexArray = [Int]()
         mAllCardArray = [
             Card(mCardNum:1, mImgName:"card_AC"),
             Card(mCardNum:1, mImgName:"card_AD"),
@@ -101,29 +101,29 @@ class Board: NSObject {
         return self.mSelectedMyCardIndexArray.count < Board.MAX_PLAYER_CARD_COUNT
     }
     
-    func getNextAnotherCard() -> Card? {
-        var nextAnotherCardIndex:Int
+    func getBankerNextCard() -> Card? {
+        var nextBankerCardIndex:Int
         repeat {
             // Get the new card index not used
-            nextAnotherCardIndex = (mRandomNumber?.nextInt())!
-        } while self.mSelectedMyCardIndexArray.contains(nextAnotherCardIndex) || self.mSelectedAnotherCardIndexArray.contains(nextAnotherCardIndex)
+            nextBankerCardIndex = (mRandomNumber?.nextInt())!
+        } while self.mSelectedMyCardIndexArray.contains(nextBankerCardIndex) || self.mSelectedBankerCardIndexArray.contains(nextBankerCardIndex)
         
-        self.mSelectedAnotherCardIndexArray.append(nextAnotherCardIndex)
+        self.mSelectedBankerCardIndexArray.append(nextBankerCardIndex)
         
-        return self.mAllCardArray[nextAnotherCardIndex]
+        return self.mAllCardArray[nextBankerCardIndex]
     }
     
-    func getNextAnotherCardIndex() -> Int {
-        return self.mSelectedAnotherCardIndexArray.count
+    func getBankerNextCardIndex() -> Int {
+        return self.mSelectedBankerCardIndexArray.count
     }
     
-    func isNextAnotherCardAvailable() -> Bool {
-        return self.mSelectedAnotherCardIndexArray.count < Board.MAX_PLAYER_CARD_COUNT
+    func isBankerNextCardAvailable() -> Bool {
+        return self.mSelectedBankerCardIndexArray.count < Board.MAX_PLAYER_CARD_COUNT
     }
     
     func reset() {
         self.mSelectedMyCardIndexArray.removeAll()
-        self.mSelectedAnotherCardIndexArray.removeAll()
+        self.mSelectedBankerCardIndexArray.removeAll()
     }
     
 }

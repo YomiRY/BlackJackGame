@@ -9,8 +9,8 @@
 import Foundation
 
 enum GameStatus {
-    case MY_CARD_USER_WIN
-    case ANOTHER_CARD_USER_WIN
+    case MY_CARD_PLAYER_WIN
+    case BANKER_CARD_PLAYER_WIN
     case GAME_TIE
     case EMPTY
 }
