@@ -12,5 +12,4 @@ enum GameStatus {
     case MY_CARD_PLAYER_WIN
     case BANKER_CARD_PLAYER_WIN
     case GAME_TIE
-    case EMPTY
 }

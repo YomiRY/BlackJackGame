@@ -12,6 +12,7 @@ import GameplayKit
 class Board: NSObject {
     
     private static let MAX_PLAYER_CARD_COUNT = 5
+    private static let MAX_TOTAL_POINT = 21
     
     private let mAllCardArray:[Card]
     private let mRandomNumber : GKShuffledDistribution?
@@ -19,8 +20,8 @@ class Board: NSObject {
     private var mSelectedBankerCardIndexArray:[Int]
     
     override init() {
-        mSelectedMyCardIndexArray = [Int]()
-        mSelectedBankerCardIndexArray = [Int]()
+        self.mSelectedMyCardIndexArray = [Int]()
+        self.mSelectedBankerCardIndexArray = [Int]()
         mAllCardArray = [
             Card(mCardNum:1, mImgName:"card_AC"),
             Card(mCardNum:1, mImgName:"card_AD"),
@@ -74,18 +75,51 @@ class Board: NSObject {
             Card(mCardNum:10, mImgName:"card_KD"),
             Card(mCardNum:10, mImgName:"card_KH"),
             Card(mCardNum:10, mImgName:"card_KS")]
-        mRandomNumber = GKShuffledDistribution(lowestValue: 0, highestValue: mAllCardArray.count - 1)
+        self.mRandomNumber = GKShuffledDistribution(lowestValue: 0, highestValue: mAllCardArray.count - 1)
     }
     
-    func getGameStatus() -> GameStatus? {
-        return nil
+    /*
+     (1.) Use total card point to identify winner if a player over MAX_TOTAL_POINT ; Otherwise, go (2.)
+     (2.) Compare the two players' total point and identify winner; Otherwise, go (3.)
+     (3.) Compare the two players' total card count and identify winner; Otherwise, go (4.)
+     (4.) GAME_TIE is happen.
+     */
+    func getGameStatus() -> GameStatus {
+        var myCardTotalPoint:Int = 0
+        var bankerCardTotalPoint:Int = 0
+        
+        for index in self.mSelectedMyCardIndexArray {
+            let card = self.mAllCardArray[index]
+            myCardTotalPoint += card.mCardNum
+        }
+        
+        for index in self.mSelectedBankerCardIndexArray {
+            let card = self.mAllCardArray[index]
+            bankerCardTotalPoint += card.mCardNum
+        }
+        
+        if myCardTotalPoint > Board.MAX_TOTAL_POINT {
+            return GameStatus.BANKER_CARD_PLAYER_WIN
+        } else if bankerCardTotalPoint > Board.MAX_TOTAL_POINT {
+            return GameStatus.MY_CARD_PLAYER_WIN
+        } else if myCardTotalPoint > bankerCardTotalPoint {
+            return GameStatus.MY_CARD_PLAYER_WIN
+        } else if myCardTotalPoint < bankerCardTotalPoint {
+            return GameStatus.BANKER_CARD_PLAYER_WIN
+        } else if (!self.isMyNextCardAvailable() && self.isBankerNextCardAvailable()) {
+            return GameStatus.MY_CARD_PLAYER_WIN
+        } else if (self.isMyNextCardAvailable() && !self.isBankerNextCardAvailable()) {
+            return GameStatus.BANKER_CARD_PLAYER_WIN
+        }
+        
+        return GameStatus.GAME_TIE
     }
     
     func getNextMyCard() -> Card? {
         var nextMyCardIndex:Int
         repeat {
             // Get the new card index not used
-            nextMyCardIndex = (mRandomNumber?.nextInt())!
+            nextMyCardIndex = (self.mRandomNumber?.nextInt())!
         } while self.mSelectedMyCardIndexArray.contains(nextMyCardIndex)
         
         self.mSelectedMyCardIndexArray.append(nextMyCardIndex)
@@ -93,11 +127,11 @@ class Board: NSObject {
         return self.mAllCardArray[nextMyCardIndex]
     }
     
-    func getNextMyCardIndex() -> Int {
+    func getMyNextCardIndex() -> Int {
         return self.mSelectedMyCardIndexArray.count
     }
     
-    func isNextMyCardAvailable() -> Bool {
+    func isMyNextCardAvailable() -> Bool {
         return self.mSelectedMyCardIndexArray.count < Board.MAX_PLAYER_CARD_COUNT
     }
     
@@ -119,6 +153,15 @@ class Board: NSObject {
     
     func isBankerNextCardAvailable() -> Bool {
         return self.mSelectedBankerCardIndexArray.count < Board.MAX_PLAYER_CARD_COUNT
+    }
+    
+    func isBankerTotalPointOver() -> Bool {
+        var bankerCardTotalPoint:Int = 0
+        for index in self.mSelectedBankerCardIndexArray {
+            let card = self.mAllCardArray[index]
+            bankerCardTotalPoint += card.mCardNum
+        }
+        return bankerCardTotalPoint > Board.MAX_TOTAL_POINT
     }
     
     func reset() {

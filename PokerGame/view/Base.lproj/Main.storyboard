@@ -211,6 +211,9 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="mBtnFinishGet" destination="5zZ-dx-qs9" id="t6I-FW-r42"/>
+                        <outlet property="mBtnGetNextCard" destination="Piz-rB-rj9" id="Ypc-Lj-ewo"/>
+                        <outlet property="mBtnRetry" destination="x8J-OO-RL7" id="MzY-jC-1rb"/>
                         <outletCollection property="mMyCardArray" destination="MDl-uw-5sN" collectionClass="NSMutableArray" id="baD-Ui-4t4"/>
                         <outletCollection property="mMyCardArray" destination="Npi-wa-rPW" collectionClass="NSMutableArray" id="9b7-EW-7j3"/>
                         <outletCollection property="mMyCardArray" destination="3UC-GB-dT9" collectionClass="NSMutableArray" id="VA1-ok-Igx"/>
