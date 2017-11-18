@@ -7,26 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDD0E4911FBF64E70054FC5B /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4901FBF64E70054FC5B /* GameStatus.swift */; };
+		EDD0E4931FBF64F20054FC5B /* BlackJackPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4921FBF64F20054FC5B /* BlackJackPresenter.swift */; };
+		EDD0E4951FBF650B0054FC5B /* BlackJackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4941FBF650B0054FC5B /* BlackJackViewController.swift */; };
+		EDD0E4971FBF65110054FC5B /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4961FBF65110054FC5B /* ViewControllerProtocol.swift */; };
 		EDE00F4E1FBADB330025BD27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE00F4D1FBADB330025BD27 /* AppDelegate.swift */; };
-		EDE00F501FBADB330025BD27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE00F4F1FBADB330025BD27 /* ViewController.swift */; };
 		EDE00F531FBADB330025BD27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE00F511FBADB330025BD27 /* Main.storyboard */; };
 		EDE00F551FBADB330025BD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDE00F541FBADB330025BD27 /* Assets.xcassets */; };
 		EDE00F581FBADB330025BD27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE00F561FBADB330025BD27 /* LaunchScreen.storyboard */; };
 		EDE00F761FBF02330025BD27 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE00F751FBF02330025BD27 /* Card.swift */; };
-		EDF15C991FBF1C3D002A020D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF15C981FBF1C3D002A020D /* Presenter.swift */; };
 		EDF15C9B1FBF1F70002A020D /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF15C9A1FBF1F70002A020D /* Board.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDD0E4901FBF64E70054FC5B /* GameStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
+		EDD0E4921FBF64F20054FC5B /* BlackJackPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackJackPresenter.swift; sourceTree = "<group>"; };
+		EDD0E4941FBF650B0054FC5B /* BlackJackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackJackViewController.swift; sourceTree = "<group>"; };
+		EDD0E4961FBF65110054FC5B /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
 		EDE00F4A1FBADB330025BD27 /* PokerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE00F4D1FBADB330025BD27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EDE00F4F1FBADB330025BD27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EDE00F521FBADB330025BD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDE00F541FBADB330025BD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDE00F571FBADB330025BD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDE00F591FBADB330025BD27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDE00F751FBF02330025BD27 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		EDF15C981FBF1C3D002A020D /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		EDF15C9A1FBF1F70002A020D /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +78,7 @@
 		EDE00F771FBF03E30025BD27 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				EDD0E4901FBF64E70054FC5B /* GameStatus.swift */,
 				EDE00F751FBF02330025BD27 /* Card.swift */,
 				EDF15C9A1FBF1F70002A020D /* Board.swift */,
 			);
@@ -83,7 +88,8 @@
 		EDE00F781FBF03F50025BD27 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				EDE00F4F1FBADB330025BD27 /* ViewController.swift */,
+				EDD0E4961FBF65110054FC5B /* ViewControllerProtocol.swift */,
+				EDD0E4941FBF650B0054FC5B /* BlackJackViewController.swift */,
 				EDE00F511FBADB330025BD27 /* Main.storyboard */,
 			);
 			path = view;
@@ -92,7 +98,7 @@
 		EDE00F791FBF04870025BD27 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
-				EDF15C981FBF1C3D002A020D /* Presenter.swift */,
+				EDD0E4921FBF64F20054FC5B /* BlackJackPresenter.swift */,
 			);
 			path = presenter;
 			sourceTree = "<group>";
@@ -169,10 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDE00F501FBADB330025BD27 /* ViewController.swift in Sources */,
+				EDD0E4911FBF64E70054FC5B /* GameStatus.swift in Sources */,
 				EDE00F761FBF02330025BD27 /* Card.swift in Sources */,
+				EDD0E4971FBF65110054FC5B /* ViewControllerProtocol.swift in Sources */,
 				EDF15C9B1FBF1F70002A020D /* Board.swift in Sources */,
-				EDF15C991FBF1C3D002A020D /* Presenter.swift in Sources */,
+				EDD0E4951FBF650B0054FC5B /* BlackJackViewController.swift in Sources */,
+				EDD0E4931FBF64F20054FC5B /* BlackJackPresenter.swift in Sources */,
 				EDE00F4E1FBADB330025BD27 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

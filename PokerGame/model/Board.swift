@@ -7,13 +7,21 @@
 //
 
 import Foundation
+import GameplayKit
 
 class Board: NSObject {
     
-    let mCardArray:[Card]
+    private static let MAX_PLAYER_CARD_COUNT = 5
+    
+    private let mAllCardArray:[Card]
+    private let mRandomNumber : GKShuffledDistribution?
+    private var mSelectedMyCardIndexArray:[Int]
+    private var mSelectedAnotherCardIndexArray:[Int]
     
     override init() {
-        mCardArray = [
+        mSelectedMyCardIndexArray = [Int]()
+        mSelectedAnotherCardIndexArray = [Int]()
+        mAllCardArray = [
             Card(mCardNum:1, mImgName:"card_AC"),
             Card(mCardNum:1, mImgName:"card_AD"),
             Card(mCardNum:1, mImgName:"card_AH"),
@@ -66,5 +74,56 @@ class Board: NSObject {
             Card(mCardNum:10, mImgName:"card_KD"),
             Card(mCardNum:10, mImgName:"card_KH"),
             Card(mCardNum:10, mImgName:"card_KS")]
+        mRandomNumber = GKShuffledDistribution(lowestValue: 0, highestValue: mAllCardArray.count - 1)
     }
+    
+    func getGameStatus() -> GameStatus? {
+        return nil
+    }
+    
+    func getNextMyCard() -> Card? {
+        var nextMyCardIndex:Int
+        repeat {
+            // Get the new card index not used
+            nextMyCardIndex = (mRandomNumber?.nextInt())!
+        } while self.mSelectedMyCardIndexArray.contains(nextMyCardIndex)
+        
+        self.mSelectedMyCardIndexArray.append(nextMyCardIndex)
+        
+        return self.mAllCardArray[nextMyCardIndex]
+    }
+    
+    func getNextMyCardIndex() -> Int {
+        return self.mSelectedMyCardIndexArray.count
+    }
+    
+    func isNextMyCardAvailable() -> Bool {
+        return self.mSelectedMyCardIndexArray.count < Board.MAX_PLAYER_CARD_COUNT
+    }
+    
+    func getNextAnotherCard() -> Card? {
+        var nextAnotherCardIndex:Int
+        repeat {
+            // Get the new card index not used
+            nextAnotherCardIndex = (mRandomNumber?.nextInt())!
+        } while self.mSelectedMyCardIndexArray.contains(nextAnotherCardIndex) || self.mSelectedAnotherCardIndexArray.contains(nextAnotherCardIndex)
+        
+        self.mSelectedAnotherCardIndexArray.append(nextAnotherCardIndex)
+        
+        return self.mAllCardArray[nextAnotherCardIndex]
+    }
+    
+    func getNextAnotherCardIndex() -> Int {
+        return self.mSelectedAnotherCardIndexArray.count
+    }
+    
+    func isNextAnotherCardAvailable() -> Bool {
+        return self.mSelectedAnotherCardIndexArray.count < Board.MAX_PLAYER_CARD_COUNT
+    }
+    
+    func reset() {
+        self.mSelectedMyCardIndexArray.removeAll()
+        self.mSelectedAnotherCardIndexArray.removeAll()
+    }
+    
 }

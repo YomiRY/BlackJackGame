@@ -10,6 +10,8 @@ import Foundation
 
 protocol ViewControllerProtocol {
     func showWinner(gameStatus:GameStatus) -> Void
-    func retry() -> Void
-    func showMyCardFront(myCardIndex:Int) -> Void
+    func resetUI() -> Void
+    func showMyCardFront(myCardIndex:Int, myCard:Card) -> Void
+    func showAnotherCardFront(anotherCardIndex:Int, anotherCard:Card) -> Void
+    
 }
